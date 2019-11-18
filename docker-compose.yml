@@ -1,0 +1,16 @@
+version: '3'
+
+services: 
+  nuxt:
+    #Dockerfile Location
+    build: .
+    tty: true
+    #Command at Container Startup
+    command: npm run dev
+    # Share source code in host and container
+    volumes: 
+      - .:/app
+    
+    #Access '3000' inside the container with '8000' from outside
+    ports: 
+      - "8000:3000"
